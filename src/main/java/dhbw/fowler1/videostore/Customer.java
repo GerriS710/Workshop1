@@ -3,7 +3,6 @@ package dhbw.fowler1.videostore;
 import java.util.Enumeration;
 import java.util.Vector;
 
-//test
 
 public class Customer {
     private String _name;
