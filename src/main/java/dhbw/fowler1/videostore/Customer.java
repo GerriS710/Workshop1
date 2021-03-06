@@ -56,7 +56,7 @@ public class Customer {
                     rentalAmount += (eachRental.getDaysRented() - 3) * 1.5;
                 break;
         }
-        return amount;
+        return rentalAmount;
     }
 
     public void addRental(Rental arg) {
