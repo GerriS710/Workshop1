@@ -39,21 +39,21 @@ public class Customer {
                 " frequent renter points";
         return result;
     }
-    public double amountCalculation(double amount, Rental each) {
+    public double amountCalculation(double rentalAmount, Rental eachRental) {
         // determine amount for each line
-        switch (each.getMovie().getPriceCode()) {
+        switch (eachRental.getMovie().getPriceCode()) {
             case Movie.REGULAR:
-                amount += 2;
-                if (each.getDaysRented() > 2)
-                    amount += (each.getDaysRented() - 2) * 1.5;
+                rentalAmount += 2;
+                if (eachRental.getDaysRented() > 2)
+                    rentalAmount += (eachRental.getDaysRented() - 2) * 1.5;
                 break;
             case Movie.NEW_RELEASE:
-                amount += each.getDaysRented() * 3;
+                rentalAmount += eachRental.getDaysRented() * 3;
                 break;
             case Movie.CHILDRENS:
-                amount += 1.5;
-                if (each.getDaysRented() > 3)
-                    amount += (each.getDaysRented() - 3) * 1.5;
+                rentalAmount += 1.5;
+                if (eachRental.getDaysRented() > 3)
+                    rentalAmount += (eachRental.getDaysRented() - 3) * 1.5;
                 break;
         }
         return amount;
