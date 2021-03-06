@@ -18,11 +18,11 @@ public class CustomerTest {
     public void statementRentRegularMovieForOneDay() throws Exception {
         customer.addRental(getRental("Killer Klowns from Outer Space", Movie.REGULAR, 1));
 
-        String expected = "Rental Record for Arthur Dent\n" +
+        String expected = "<H1>Rentals for <EM>Rental Record for Arthur Dent</EM></H1><P>\n" +
                 "\tKiller Klowns from Outer Space\t2.0\n" +
                 "Amount owed is 2.0\n"+
                 "You earned 1 frequent renter points";
-        assertEquals(expected, customer.statement());
+        assertEquals(expected, customer.htmlStatement());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class CustomerTest {
                 "\tAwesome New Release\t3.0\n" +
                 "Amount owed is 3.0\n"+
                 "You earned 1 frequent renter points";
-        assertEquals(expected, customer.statement());
+        assertEquals(expected, customer.htmlStatement());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class CustomerTest {
                 "\tCars\t1.5\n" +
                 "Amount owed is 1.5\n"+
                 "You earned 1 frequent renter points";
-        assertEquals(expected, customer.statement());
+        assertEquals(expected, customer.htmlStatement());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CustomerTest {
                 "\tCars\t3.0\n" +
                 "Amount owed is 3.0\n"+
                 "You earned 1 frequent renter points";
-        assertEquals(expected, customer.statement());
+        assertEquals(expected, customer.htmlStatement());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class CustomerTest {
                 "\tKiller Klowns from Outer Space\t3.5\n" +
                 "Amount owed is 3.5\n"+
                 "You earned 1 frequent renter points";
-        assertEquals(expected, customer.statement());
+        assertEquals(expected, customer.htmlStatement());
     }
 
     @Test
@@ -77,7 +77,7 @@ public class CustomerTest {
                 "\tAwesome New Release\t6.0\n" +
                 "Amount owed is 6.0\n"+
                 "You earned 2 frequent renter points";
-        assertEquals(expected, customer.statement());
+        assertEquals(expected, customer.htmlStatement());
     }
 
     @Test
@@ -93,7 +93,7 @@ public class CustomerTest {
                 "\tCars\t3.0\n" +
                 "Amount owed is 20.0\n"+
                 "You earned 4 frequent renter points";
-        assertEquals(expected, customer.statement());
+        assertEquals(expected, customer.htmlStatement());
     }
 
     private Rental getRental(String title, int priceCode, int daysRented) {
