@@ -20,7 +20,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-            thisAmount = amountCalculation(thisAmount, each);
+            thisAmount = each.amountCalculation(thisAmount, each);
 
             // add frequent renter points
             frequentRenterPoints ++;
@@ -38,25 +38,6 @@ public class Customer {
         result += "You earned " + String.valueOf(frequentRenterPoints) +
                 " frequent renter points";
         return result;
-    }
-    public double amountCalculation(double rentalAmount, Rental eachRental) {
-        // determine amount for each line
-        switch (eachRental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                rentalAmount += 2;
-                if (eachRental.getDaysRented() > 2)
-                    rentalAmount += (eachRental.getDaysRented() - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE:
-                rentalAmount += eachRental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                rentalAmount += 1.5;
-                if (eachRental.getDaysRented() > 3)
-                    rentalAmount += (eachRental.getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return rentalAmount;
     }
 
     public void addRental(Rental arg) {
